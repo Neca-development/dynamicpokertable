@@ -1,0 +1,44 @@
+html, body{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#dynamicpockertable{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+}
+
+.table-wrapper{
+  grid-area: 2 / 2 / 5 / 7; 
+}
+
+.table-wrapper .table{
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: #095D2A;
+  border-radius: 120px;
+  border: 10px solid #C18561;
+  -webkit-box-shadow: inset 0px 6px 13px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    inset 0px 6px 13px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         inset 0px 6px 13px 0px rgba(50, 50, 50, 0.75);
+}
+
+.message-box{
+  grid-area: 3 / 3 / 4 / 6;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  box-sizing: border-box;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
