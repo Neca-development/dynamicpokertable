@@ -1,0 +1,8 @@
+"use strict";
+
+var _player = require("./js/player");
+
+var _table = require("./js/table");
+
+// table.drawTable([])
+console.log(_table.table);

@@ -1,0 +1,24 @@
+{
+	"name": "dynamicpokertable",
+	"version": "1.0.0",
+	"description": "Masster branch",
+	"main": "dynamicpockertable.js",
+	"scripts": {
+		"serve": "parcel serve ./src/index.html"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Neca-development/dynamicpokertable.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Neca-development/dynamicpokertable/issues"
+	},
+	"homepage": "https://github.com/Neca-development/dynamicpokertable#readme",
+	"devDependencies": {
+		"parcel": "^2.0.0-beta.1",
+		"sass": "^1.32.8"
+	}
+}
