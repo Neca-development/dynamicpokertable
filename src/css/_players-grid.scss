@@ -375,7 +375,8 @@
 				align-items: flex-start;
 			}
 			&:nth-of-type(10) {
-				align-items: flex-end;
+				align-items: flex-start;
+				justify-content: flex-end;
 				.player {
 					&__avatar {
 						order: 2;
