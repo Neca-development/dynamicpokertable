@@ -1,24 +1,39 @@
 import { playersGrid } from './playersGrid';
 
 export const player = {
-    addPlayer(name, color, country, coins) {
+    addPlayer(name, country, coins) {
         const grid = document.querySelector('.players-grid'),
-            playersCount = document.querySelectorAll('.players-grid .player').length,
             player = document.createElement('div'),
             id = Date.now();
 
+        // create player
         player.setAttribute('id', id)
         player.classList.add('player')
 
-        // Создаем аватар
+        // create avatar
         const avatar = document.createElement('div')
         avatar.classList.add('player__avatar')
-        avatar.style.backgroundColor = (color);
         player.append(avatar)
 
-        if (playersCount === playersGrid.playersLimit) return alert('Лимит превывшен')
+        // TODO Remove after test
+        const deleteBtn = document.createElement('button')
+        deleteBtn.classList.add('player__delete')
+        deleteBtn.textContent = 'delete'
+        player.append(deleteBtn)
+
+
+        const textField = document.createElement('div')
+        textField.classList.add('player__info')
+        textField.textContent = 'Some text.....'
+        player.append(textField)
+
+        if (playersGrid.countPlayers() === playersGrid.playersLimit) return alert('Лимит превывшен')
         grid.append(player)
-        playersGrid.refreshGrid(playersCount + 1)
+        playersGrid.refreshGrid()
+    },
+    removePlayer(id) {
+        document.getElementById(id).remove()
+        playersGrid.refreshGrid()
     }
 }
 
