@@ -125,9 +125,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.playersGrid = void 0;
 var playersGrid = {
-  refreshGrid: function refreshGrid() {
-    var grid = document.querySelector('.players-grid'),
-        playersCount = document.querySelectorAll('.players-grid .player').length;
+  playersLimit: 10,
+  refreshGrid: function refreshGrid(playersCount) {
+    var grid = document.querySelector('.players-grid');
     grid.classList.remove(grid.classList.item(1));
     grid.classList.add("players-grid_".concat(playersCount, "-players"));
   }
@@ -146,13 +146,20 @@ var _playersGrid = require("./playersGrid");
 var player = {
   addPlayer: function addPlayer(name, color, country, coins) {
     var grid = document.querySelector('.players-grid'),
+        playersCount = document.querySelectorAll('.players-grid .player').length,
         player = document.createElement('div'),
         id = Date.now();
     player.setAttribute('id', id);
-    player.classList.add('player');
+    player.classList.add('player'); // Создаем аватар
+
+    var avatar = document.createElement('div');
+    avatar.classList.add('player__avatar');
+    avatar.style.backgroundColor = color;
+    player.append(avatar);
+    if (playersCount === _playersGrid.playersGrid.playersLimit) return alert('Лимит превывшен');
     grid.append(player);
 
-    _playersGrid.playersGrid.refreshGrid();
+    _playersGrid.playersGrid.refreshGrid(playersCount + 1);
   }
 };
 exports.player = player;
@@ -188,8 +195,13 @@ var _player = require("./js/player");
 
 var _table = require("./js/table");
 
-_table.table.drawTable([]);
-},{"./js/player":"js/player.js","./js/table":"js/table.js"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+_table.table.drawTable([]); // Тест добавления игрока
+
+
+document.querySelector('.test-add-player').addEventListener('click', function () {
+  _player.player.addPlayer();
+});
+},{"./js/player":"js/player.js","./js/table":"js/table.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -217,7 +229,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55897" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63945" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -393,5 +405,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","main.js"], null)
+},{}]},{},["../node_modules/parcel/src/builtins/hmr-runtime.js","main.js"], null)
 //# sourceMappingURL=/main.1f19ae8e.js.map

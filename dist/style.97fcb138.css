@@ -51,6 +51,9 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   transition: all ease 0.2s;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  grid-template-areas: ". . . . . . ." ". . . . . . ." "p1 . . . . . ." ". . . . . . ." ". . . . . . .";
 }
 .players-grid_2-players {
   grid-template-areas: ". . . . . . ." ". . . . . . ." "p1 . . . . . p2" ". . . . . . ." ". . . . . . .";
@@ -58,63 +61,218 @@ body {
 .players-grid_3-players {
   grid-template-areas: ". . . . . . ." ". . . . . . ." "p1 . . . . . p2" ". . . . . . ." ". . . p3 . . .";
 }
+.players-grid_3-players .player:nth-of-type(3) {
+  align-items: flex-start;
+  justify-content: center;
+}
 .players-grid_4-players {
   grid-template-areas: ". . . p4 . . ." ". . . . . . ." "p1 . . . . . p2" ". . . . . . ." ". . . p3 . . .";
+}
+.players-grid_4-players .player:nth-of-type(3) {
+  align-items: flex-start;
+  justify-content: center;
+}
+.players-grid_4-players .player:nth-of-type(4) {
+  align-items: flex-end;
+  justify-content: center;
 }
 .players-grid_5-players {
   grid-template-areas: ". . p4 . p5 . ." ". . . . . . ." "p1 . . . . . ." ". . . . . . ." ". . p2 . p3 . .";
 }
+.players-grid_5-players .player:nth-of-type(2), .players-grid_5-players .player:nth-of-type(3) {
+  align-items: flex-start;
+  justify-content: center;
+}
+.players-grid_5-players .player:nth-of-type(4), .players-grid_5-players .player:nth-of-type(5) {
+  align-items: flex-end;
+  justify-content: center;
+}
 .players-grid_6-players {
-  grid-template-areas: ". . p4 . p5 . ." ". . . . . . ." "p1 . . . . . p2" ". . . . . . ." ". . p6 . p3 . .";
+  grid-template-areas: ". . p4 . p5 . ." ". . . . . . ." "p1 . . . . . p6" ". . . . . . ." ". . p2 . p3 . .";
+}
+.players-grid_6-players .player:nth-of-type(2), .players-grid_6-players .player:nth-of-type(3) {
+  align-items: flex-start;
+  justify-content: center;
+}
+.players-grid_6-players .player:nth-of-type(4), .players-grid_6-players .player:nth-of-type(5) {
+  align-items: flex-end;
+  justify-content: center;
 }
 .players-grid_7-players {
-  grid-template-areas: "p3 . . . . . p4" ". . . . . . ." "p1 . . . . . p2" ". . . . . . ." "p6 . . p7 . . p5";
+  grid-template-areas: ". . p5 . p6 . ." ". . . . . . ." "p1 . . . . . p7" ". . . . . . ." ". p2 . p3 . p4 .";
+}
+.players-grid_7-players .player:nth-of-type(2), .players-grid_7-players .player:nth-of-type(3), .players-grid_7-players .player:nth-of-type(4) {
+  align-items: flex-start;
+}
+.players-grid_7-players .player:nth-of-type(2) {
+  justify-content: flex-end;
+}
+.players-grid_7-players .player:nth-of-type(3) {
+  justify-content: center;
+}
+.players-grid_7-players .player:nth-of-type(5), .players-grid_7-players .player:nth-of-type(6) {
+  align-items: flex-end;
+  justify-content: center;
 }
 .players-grid_8-players {
-  grid-template-areas: "p3 . . p8 . . p4" ". . . . . . ." "p1 . . . . . p2" ". . . . . . ." "p6 . . p7 . . p5";
+  grid-template-areas: ". p5 . p6 . p7 ." ". . . . . . ." "p1 . . . . . p8" ". . . . . . ." ". p2 . p3 . p4 .";
+}
+.players-grid_8-players .player:nth-of-type(2), .players-grid_8-players .player:nth-of-type(3), .players-grid_8-players .player:nth-of-type(4) {
+  align-items: flex-start;
+}
+.players-grid_8-players .player:nth-of-type(2), .players-grid_8-players .player:nth-of-type(5) {
+  justify-content: flex-end;
+}
+.players-grid_8-players .player:nth-of-type(3), .players-grid_8-players .player:nth-of-type(6) {
+  justify-content: center;
+}
+.players-grid_8-players .player:nth-of-type(5), .players-grid_8-players .player:nth-of-type(6), .players-grid_8-players .player:nth-of-type(7) {
+  align-items: flex-end;
 }
 .players-grid_9-players {
-  grid-template-areas: "p2 . p3 . p4 . p5" ". . . . . . ." "p1 . . . . . ." ". . . . . . ." "p6 . p7 . p8 . p9";
+  grid-template-areas: ". p5 . p6 . p7 ." ". . . . . . p8" "p1 . . . . . ." ". . . . . . p9" ". p2 . p3 . p4.";
+}
+.players-grid_9-players .player:nth-of-type(2), .players-grid_9-players .player:nth-of-type(3), .players-grid_9-players .player:nth-of-type(4), .players-grid_9-players .player:nth-of-type(9) {
+  align-items: flex-start;
+}
+.players-grid_9-players .player:nth-of-type(2), .players-grid_9-players .player:nth-of-type(5) {
+  justify-content: flex-end;
+}
+.players-grid_9-players .player:nth-of-type(3), .players-grid_9-players .player:nth-of-type(6) {
+  justify-content: center;
+}
+.players-grid_9-players .player:nth-of-type(5), .players-grid_9-players .player:nth-of-type(6), .players-grid_9-players .player:nth-of-type(7), .players-grid_9-players .player:nth-of-type(8) {
+  align-items: flex-end;
 }
 .players-grid_10-players {
-  grid-template-areas: "p2 . p3 . p4 . p5" ". . . . . . ." "p1 . . . . . p10" ". . . . . . ." "p6 . p7 . p8 . p9";
+  grid-template-areas: ". p1 . p2 . p3 ." "p10 . . . . . p4" ". . . . . . ." "p9 . . . . . p5" ". p8 . p7 . p6.";
+}
+.players-grid_10-players .player:nth-of-type(1) {
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.players-grid_10-players .player:nth-of-type(2) {
+  align-items: flex-end;
+  justify-content: center;
+}
+.players-grid_10-players .player:nth-of-type(3) {
+  align-items: flex-end;
+}
+.players-grid_10-players .player:nth-of-type(4) {
+  align-items: flex-end;
+}
+.players-grid_10-players .player:nth-of-type(5) {
+  align-items: flex-start;
+}
+.players-grid_10-players .player:nth-of-type(6) {
+  align-items: flex-start;
+}
+.players-grid_10-players .player:nth-of-type(7) {
+  align-items: flex-start;
+  justify-content: center;
+}
+.players-grid_10-players .player:nth-of-type(8) {
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+.players-grid_10-players .player:nth-of-type(9) {
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.players-grid_10-players .player:nth-of-type(10) {
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .player {
-  background: #000;
+  transition: all ease 0.2s;
   width: 100%;
   height: 100%;
-  transition: all ease 0.2s;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 .player:nth-of-type(1) {
   grid-area: p1;
+  align-items: center;
+  justify-content: flex-end;
+}
+.player:nth-of-type(1) .player__avatar {
+  background-color: #52ddcb;
 }
 .player:nth-of-type(2) {
   grid-area: p2;
 }
+.player:nth-of-type(2) .player__avatar {
+  background-color: crimson;
+}
 .player:nth-of-type(3) {
   grid-area: p3;
+}
+.player:nth-of-type(3) .player__avatar {
+  background-color: lightcoral;
 }
 .player:nth-of-type(4) {
   grid-area: p4;
 }
+.player:nth-of-type(4) .player__avatar {
+  background-color: #444;
+}
 .player:nth-of-type(5) {
   grid-area: p5;
+}
+.player:nth-of-type(5) .player__avatar {
+  background-color: #248f24;
 }
 .player:nth-of-type(6) {
   grid-area: p6;
 }
+.player:nth-of-type(6) .player__avatar {
+  background-color: goldenrod;
+}
 .player:nth-of-type(7) {
   grid-area: p7;
+}
+.player:nth-of-type(7) .player__avatar {
+  background-color: #c724b1;
 }
 .player:nth-of-type(8) {
   grid-area: p8;
 }
+.player:nth-of-type(8) .player__avatar {
+  background-color: #6ad879;
+}
 .player:nth-of-type(9) {
   grid-area: p9;
 }
+.player:nth-of-type(9) .player__avatar {
+  background-color: #f37b18;
+}
 .player:nth-of-type(10) {
   grid-area: p10;
+}
+.player:nth-of-type(10) .player__avatar {
+  background-color: #431cce;
+}
+.player__avatar {
+  width: 50%;
+  height: 0;
+  padding-bottom: 50%;
+  border-radius: 100%;
+  position: relative;
+  z-index: 1;
+}
+.player__avatar:after {
+  content: "";
+  width: 60%;
+  height: 60%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.1);
+  top: 50%;
+  left: 50%;
+  transform: translatex(-50%) translatey(-50%);
+  border-radius: 100%;
+  box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.2);
 }
 
 /*# sourceMappingURL=/style.97fcb138.css.map */

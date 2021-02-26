@@ -131,10 +131,10 @@
       this[globalName] = mainExports;
     }
   }
-})({"487dbd3ea4c9cd23ee796e6f60174d0d":[function(require,module,exports) {
+})({"9c681a51d01060f783baaae3d2539f59":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
-var HMR_PORT = 56193;
+var HMR_PORT = 1234;
 var HMR_ENV_HASH = "d751713988987e9331980363e24189ce";
 module.bundle.HMR_BUNDLE_ID = "42f3a34e09c97c2a5d2458ec06eebc44";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH */
@@ -414,7 +414,12 @@ var _player = require("./js/player");
 
 var _table = require("./js/table");
 
-_table.table.drawTable([]);
+_table.table.drawTable([]); // Тест добавления игрока
+
+
+document.querySelector('.test-add-player').addEventListener('click', () => {
+  _player.player.addPlayer();
+});
 },{"./js/player":"71f90f273b0ac96f8b24f0d0600fa3c3","./js/table":"bf0a19f2d48194c9a877d5883811f7ec"}],"71f90f273b0ac96f8b24f0d0600fa3c3":[function(require,module,exports) {
 "use strict";
 
@@ -428,13 +433,20 @@ var _playersGrid = require("./playersGrid");
 const player = {
   addPlayer(name, color, country, coins) {
     const grid = document.querySelector('.players-grid'),
+          playersCount = document.querySelectorAll('.players-grid .player').length,
           player = document.createElement('div'),
           id = Date.now();
     player.setAttribute('id', id);
-    player.classList.add('player');
+    player.classList.add('player'); // Создаем аватар
+
+    const avatar = document.createElement('div');
+    avatar.classList.add('player__avatar');
+    avatar.style.backgroundColor = color;
+    player.append(avatar);
+    if (playersCount === _playersGrid.playersGrid.playersLimit) return alert('Лимит превывшен');
     grid.append(player);
 
-    _playersGrid.playersGrid.refreshGrid();
+    _playersGrid.playersGrid.refreshGrid(playersCount + 1);
   }
 
 };
@@ -447,9 +459,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.playersGrid = void 0;
 const playersGrid = {
-  refreshGrid() {
-    const grid = document.querySelector('.players-grid'),
-          playersCount = document.querySelectorAll('.players-grid .player').length;
+  playersLimit: 10,
+
+  refreshGrid(playersCount) {
+    const grid = document.querySelector('.players-grid');
     grid.classList.remove(grid.classList.item(1));
     grid.classList.add(`players-grid_${playersCount}-players`);
   }
@@ -490,6 +503,6 @@ const table = {
 
 };
 exports.table = table;
-},{}]},{},["487dbd3ea4c9cd23ee796e6f60174d0d","ff2ecb93d3cd40135cebf9a880de8620"], null)
+},{}]},{},["9c681a51d01060f783baaae3d2539f59","ff2ecb93d3cd40135cebf9a880de8620"], null)
 
 //# sourceMappingURL=main.42f3a34e.js.map

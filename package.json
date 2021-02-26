@@ -4,7 +4,7 @@
 	"description": "Masster branch",
 	"main": "dynamicpockertable.js",
 	"scripts": {
-		"serve": "parcel serve ./src/index.html"
+		"serve": "parcel ./src/index.html"
 	},
 	"repository": {
 		"type": "git",
@@ -18,7 +18,9 @@
 	},
 	"homepage": "https://github.com/Neca-development/dynamicpokertable#readme",
 	"devDependencies": {
-		"parcel": "^2.0.0-beta.1",
 		"sass": "^1.32.8"
+	},
+	"dependencies": {
+		"parcel": "^1.12.4"
 	}
 }

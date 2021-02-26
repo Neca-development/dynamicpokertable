@@ -1,0 +1,228 @@
+.players-grid {
+	display: grid;
+	width: 100%;
+	grid-area: 1/1/-1/-1;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	transition: all ease 0.2s;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+	align-items: center;
+	justify-content: center;
+	grid-template-areas:
+		". . . . . . ."
+		". . . . . . ."
+		"p1 . . . . . ."
+		". . . . . . ."
+		". . . . . . .";
+
+	&_2-players {
+		grid-template-areas:
+			". . . . . . ."
+			". . . . . . ."
+			"p1 . . . . . p2"
+			". . . . . . ."
+			". . . . . . .";
+	}
+	&_3-players {
+		grid-template-areas:
+			". . . . . . ."
+			". . . . . . ."
+			"p1 . . . . . p2"
+			". . . . . . ."
+			". . . p3 . . .";
+		.player {
+			&:nth-of-type(3) {
+				align-items: flex-start;
+				justify-content: center;
+			}
+		}
+	}
+	&_4-players {
+		grid-template-areas:
+			". . . p4 . . ."
+			". . . . . . ."
+			"p1 . . . . . p2"
+			". . . . . . ."
+			". . . p3 . . .";
+		.player {
+			&:nth-of-type(3) {
+				align-items: flex-start;
+				justify-content: center;
+			}
+			&:nth-of-type(4) {
+				align-items: flex-end;
+				justify-content: center;
+			}
+		}
+	}
+	&_5-players {
+		grid-template-areas:
+			". . p4 . p5 . ."
+			". . . . . . ."
+			"p1 . . . . . ."
+			". . . . . . ."
+			". . p2 . p3 . .";
+		.player {
+			&:nth-of-type(2),
+			&:nth-of-type(3) {
+				align-items: flex-start;
+				justify-content: center;
+			}
+			&:nth-of-type(4),
+			&:nth-of-type(5) {
+				align-items: flex-end;
+				justify-content: center;
+			}
+		}
+	}
+	&_6-players {
+		grid-template-areas:
+			". . p4 . p5 . ."
+			". . . . . . ."
+			"p1 . . . . . p6"
+			". . . . . . ."
+			". . p2 . p3 . .";
+		.player {
+			&:nth-of-type(2),
+			&:nth-of-type(3) {
+				align-items: flex-start;
+				justify-content: center;
+			}
+			&:nth-of-type(4),
+			&:nth-of-type(5) {
+				align-items: flex-end;
+				justify-content: center;
+			}
+		}
+	}
+	&_7-players {
+		grid-template-areas:
+			". . p5 . p6 . ."
+			". . . . . . ."
+			"p1 . . . . . p7"
+			". . . . . . ."
+			". p2 . p3 . p4 .";
+		.player {
+			&:nth-of-type(2),
+			&:nth-of-type(3),
+			&:nth-of-type(4) {
+				align-items: flex-start;
+			}
+			&:nth-of-type(2) {
+				justify-content: flex-end;
+			}
+			&:nth-of-type(3) {
+				justify-content: center;
+			}
+			&:nth-of-type(5),
+			&:nth-of-type(6) {
+				align-items: flex-end;
+				justify-content: center;
+			}
+		}
+	}
+	&_8-players {
+		grid-template-areas:
+			". p5 . p6 . p7 ."
+			". . . . . . ."
+			"p1 . . . . . p8"
+			". . . . . . ."
+			". p2 . p3 . p4 .";
+		.player {
+			&:nth-of-type(2),
+			&:nth-of-type(3),
+			&:nth-of-type(4) {
+				align-items: flex-start;
+			}
+			&:nth-of-type(2),
+			&:nth-of-type(5) {
+				justify-content: flex-end;
+			}
+			&:nth-of-type(3),
+			&:nth-of-type(6) {
+				justify-content: center;
+			}
+			&:nth-of-type(5),
+			&:nth-of-type(6),
+			&:nth-of-type(7) {
+				align-items: flex-end;
+			}
+		}
+	}
+	&_9-players {
+		grid-template-areas:
+			". p5 . p6 . p7 ."
+			". . . . . . p8"
+			"p1 . . . . . ."
+			". . . . . . p9"
+			". p2 . p3 . p4.";
+		.player {
+			&:nth-of-type(2),
+			&:nth-of-type(3),
+			&:nth-of-type(4),
+			&:nth-of-type(9) {
+				align-items: flex-start;
+			}
+			&:nth-of-type(2),
+			&:nth-of-type(5) {
+				justify-content: flex-end;
+			}
+			&:nth-of-type(3),
+			&:nth-of-type(6) {
+				justify-content: center;
+			}
+			&:nth-of-type(5),
+			&:nth-of-type(6),
+			&:nth-of-type(7),
+			&:nth-of-type(8) {
+				align-items: flex-end;
+			}
+		}
+	}
+	&_10-players {
+		grid-template-areas:
+			". p1 . p2 . p3 ."
+			"p10 . . . . . p4"
+			". . . . . . ."
+			"p9 . . . . . p5"
+			". p8 . p7 . p6.";
+
+		.player {
+			&:nth-of-type(1) {
+				align-items: flex-end;
+				justify-content: flex-end;
+			}
+			&:nth-of-type(2) {
+				align-items: flex-end;
+				justify-content: center;
+			}
+			&:nth-of-type(3) {
+				align-items: flex-end;
+			}
+			&:nth-of-type(4) {
+				align-items: flex-end;
+			}
+			&:nth-of-type(5) {
+				align-items: flex-start;
+			}
+			&:nth-of-type(6) {
+				align-items: flex-start;
+			}
+			&:nth-of-type(7) {
+				align-items: flex-start;
+				justify-content: center;
+			}
+			&:nth-of-type(8) {
+				align-items: flex-start;
+				justify-content: flex-end;
+			}
+			&:nth-of-type(9) {
+				justify-content: flex-end;
+				align-items: flex-start;
+			}
+			&:nth-of-type(10) {
+				justify-content: flex-end;
+				align-items: flex-end;
+			}
+		}
+	}
+}
