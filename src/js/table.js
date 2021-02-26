@@ -1,7 +1,7 @@
 export const table = {
     drawTable(players) {
-        var $tablewrapper = document.getElementById('dynamicpockertable');
-        $tablewrapper.innerHTML = `
+        var tablewrapper = document.getElementById('dynamicpockertable');
+        tablewrapper.innerHTML = `
     <div class="table-wrapper">
     <div class="table" id="table"></div>
     </div>
