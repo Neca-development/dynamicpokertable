@@ -1,4 +1,4 @@
-function drawTable (players, tableColor, borderColor){
+function drawTable (players){
   var $tablewrapper = document.getElementById('dynamicpockertable');
 
   $tablewrapper.innerHTML = `
@@ -8,11 +8,10 @@ function drawTable (players, tableColor, borderColor){
     <div class="message-box" id="message-box"></div>
   `;
 
-  applyStyleToTable(tableColor, borderColor);
   sendMessageToTable(`Hello from container!!!`);
 }
 
-function applyStyleToTable(tableColor, borderColor){
+function applyColorsToTable(tableColor, borderColor){
   var $table = document.getElementById('table');
   
   $table.style.backgroundColor = tableColor;
@@ -24,4 +23,5 @@ function sendMessageToTable(message){
   $tablecontainer.innerHTML = message;
 }
 
-drawTable([], '#076B94', '#666');
+drawTable([]);
+applyColorsToTable( '#076B94', '#666');
