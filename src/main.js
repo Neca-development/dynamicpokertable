@@ -4,7 +4,7 @@ import { table } from './js/table';
 
 table.drawTable([])
 
-// TODO remove after test
+// remove after test
 // add player
 document.querySelector('.test-add-player').addEventListener('click', () => { player.addPlayer() })
 // remove player
