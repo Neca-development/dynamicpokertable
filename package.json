@@ -21,6 +21,8 @@
 		"sass": "^1.32.8"
 	},
 	"dependencies": {
-		"parcel": "^1.12.4"
+		"parcel": "^1.12.4",
+		"prettier": "^2.2.1",
+		"prettier-plugin-csssort": "0.0.1"
 	}
 }
