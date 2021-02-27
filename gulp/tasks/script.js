@@ -26,9 +26,6 @@ module.exports = function script() {
             exclude: /(node_modules|bower_components)/,
             use: {
               loader: 'babel-loader',
-              options: {
-                presets: ['@babel/preset-env']
-              }
             }
           }
         ]
