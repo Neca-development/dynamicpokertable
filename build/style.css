@@ -603,6 +603,7 @@ html {
 }
 
 /* remove after test */
+
 .player__delete {
 	position: absolute;
 	z-index: 3;
