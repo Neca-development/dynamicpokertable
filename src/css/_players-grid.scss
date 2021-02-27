@@ -1,0 +1,436 @@
+.players-grid {
+	display: grid;
+	align-items: center;
+	justify-content: center;
+
+	width: 100%;
+
+	transition: all ease 0.2s;
+	grid-area: 1/1/-1/-1;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-areas:
+		". . . . . . ."
+		". . . . . . ."
+		"p1 . . . . . ."
+		". . . . . . ."
+		". . . . . . .";
+	&_2-players {
+		grid-template-areas:
+			". . . . . . ."
+			". . . . . . ."
+			"p1 . . . . . p2"
+			". . . . . . ."
+			". . . . . . .";
+		.player {
+			&:nth-of-type(2) {
+				left: -12.5%;
+				.player__info {
+					margin-left: 10px;
+				}
+			}
+		}
+	}
+	&_3-players {
+		grid-template-areas:
+			". . . . . . ."
+			". . . . . . ."
+			"p1 . . . . . p2"
+			". . . . . . ."
+			". . . p3 . . .";
+		.player {
+			&:nth-of-type(2) {
+				left: -12.5%;
+				.player__info {
+					margin-left: 10px;
+				}
+			}
+			&:nth-of-type(3) {
+				top: -12.5%;
+
+				flex-direction: column;
+				justify-content: flex-start;
+				.player__info {
+					margin-top: 10px;
+				}
+			}
+		}
+	}
+	&_4-players {
+		grid-template-areas:
+			". . . p4 . . ."
+			". . . . . . ."
+			"p1 . . . . . p2"
+			". . . . . . ."
+			". . . p3 . . .";
+		.player {
+			&:nth-of-type(2) {
+				left: -12.5%;
+				.player__info {
+					margin-left: 10px;
+				}
+			}
+			&:nth-of-type(3) {
+				top: -12.5%;
+
+				align-items: center;
+				flex-direction: column;
+				justify-content: flex-start;
+				.player__info {
+					margin-top: 10px;
+				}
+			}
+			&:nth-of-type(4) {
+				bottom: -12.5%;
+
+				align-items: center;
+				flex-direction: column;
+				justify-content: flex-end;
+				.player {
+					&__info {
+						order: 1;
+
+						margin-bottom: 10px;
+					}
+					&__avatar {
+						order: 2;
+					}
+				}
+			}
+		}
+	}
+	&_5-players {
+		grid-template-areas:
+			". . p4 . p5 . ."
+			". . . . . . ."
+			"p1 . . . . . ."
+			". . . . . . ."
+			". . p2 . p3 . .";
+		.player {
+			&:nth-of-type(2),
+			&:nth-of-type(3) {
+				top: -12.5%;
+
+				align-items: center;
+				flex-direction: column;
+				justify-content: flex-start;
+				.player__info {
+					margin-top: 10px;
+				}
+			}
+			&:nth-of-type(4),
+			&:nth-of-type(5) {
+				bottom: -12.5%;
+
+				align-items: center;
+				flex-direction: column;
+				justify-content: flex-end;
+				.player {
+					&__info {
+						order: 1;
+
+						margin-bottom: 10px;
+					}
+					&__avatar {
+						order: 2;
+					}
+				}
+			}
+		}
+	}
+	&_6-players {
+		grid-template-areas:
+			". . p4 . p5 . ."
+			". . . . . . ."
+			"p1 . . . . . p6"
+			". . . . . . ."
+			". . p2 . p3 . .";
+		.player {
+			&:nth-of-type(2),
+			&:nth-of-type(3) {
+				top: -12.5%;
+
+				align-items: center;
+				flex-direction: column;
+				justify-content: flex-start;
+				.player__info {
+					margin-top: 10px;
+				}
+			}
+			&:nth-of-type(4),
+			&:nth-of-type(5) {
+				bottom: -12.5%;
+
+				align-items: center;
+				flex-direction: column;
+				justify-content: flex-end;
+				.player {
+					&__info {
+						order: 1;
+
+						margin-bottom: 10px;
+					}
+					&__avatar {
+						order: 2;
+					}
+				}
+			}
+			&:nth-of-type(6) {
+				left: -12.5%;
+				.player__info {
+					margin-left: 10px;
+				}
+			}
+		}
+	}
+	&_7-players {
+		grid-template-areas:
+			". . p5 . p6 . ."
+			". . . . . . ."
+			"p1 . . . . . p7"
+			". . . . . . ."
+			". p2 . p3 . p4 .";
+		.player {
+			&:nth-of-type(2),
+			&:nth-of-type(3),
+			&:nth-of-type(4) {
+				top: -12.5%;
+
+				align-items: flex-start;
+				flex-direction: column;
+				justify-content: flex-start;
+				.player__info {
+					margin-top: 10px;
+				}
+			}
+			&:nth-of-type(2) {
+				align-items: flex-end;
+			}
+			&:nth-of-type(3) {
+				align-items: center;
+			}
+			&:nth-of-type(5),
+			&:nth-of-type(6) {
+				bottom: -12.5%;
+
+				align-items: center;
+				flex-direction: column;
+				justify-content: flex-end;
+				.player {
+					&__info {
+						order: 1;
+
+						margin-bottom: 10px;
+					}
+					&__avatar {
+						order: 2;
+					}
+				}
+			}
+			&:nth-of-type(7) {
+				left: -12.5%;
+				.player__info {
+					margin-left: 10px;
+				}
+			}
+		}
+	}
+	&_8-players {
+		grid-template-areas:
+			". p5 . p6 . p7 ."
+			". . . . . . ."
+			"p1 . . . . . p8"
+			". . . . . . ."
+			". p2 . p3 . p4 .";
+		.player {
+			&:nth-of-type(2),
+			&:nth-of-type(3),
+			&:nth-of-type(4) {
+				top: -12.5%;
+
+				align-items: flex-start;
+				flex-direction: column;
+				justify-content: flex-start;
+				.player__info {
+					margin-top: 10px;
+				}
+			}
+			&:nth-of-type(5),
+			&:nth-of-type(6),
+			&:nth-of-type(7) {
+				bottom: -12.5%;
+
+				align-items: flex-start;
+				flex-direction: column;
+				justify-content: flex-end;
+				.player {
+					&__info {
+						order: 1;
+
+						margin-bottom: 10px;
+					}
+					&__avatar {
+						order: 2;
+					}
+				}
+			}
+			&:nth-of-type(2),
+			&:nth-of-type(5) {
+				align-items: flex-end;
+			}
+			&:nth-of-type(3),
+			&:nth-of-type(6) {
+				align-items: center;
+			}
+			&:nth-of-type(8) {
+				left: -12.5%;
+				.player__info {
+					margin-left: 10px;
+				}
+			}
+		}
+	}
+	&_9-players {
+		grid-template-areas:
+			". p5 . p6 . p7 ."
+			". . . . . . p8"
+			"p1 . . . . . ."
+			". . . . . . p9"
+			". p2 . p3 . p4.";
+		.player {
+			&:nth-of-type(2),
+			&:nth-of-type(3),
+			&:nth-of-type(4) {
+				top: -12.5%;
+
+				align-items: flex-start;
+				flex-direction: column;
+				justify-content: flex-start;
+				.player__info {
+					margin-top: 10px;
+				}
+			}
+			&:nth-of-type(5),
+			&:nth-of-type(6),
+			&:nth-of-type(7) {
+				bottom: -12.5%;
+
+				align-items: flex-start;
+				flex-direction: column;
+				justify-content: flex-end;
+				.player {
+					&__info {
+						order: 1;
+
+						margin-bottom: 10px;
+					}
+					&__avatar {
+						order: 2;
+					}
+				}
+			}
+			&:nth-of-type(2),
+			&:nth-of-type(5) {
+				align-items: flex-end;
+			}
+			&:nth-of-type(3),
+			&:nth-of-type(6) {
+				align-items: center;
+			}
+			&:nth-of-type(8),
+			&:nth-of-type(9) {
+				left: -12.5%;
+				.player__info {
+					margin-left: 10px;
+				}
+			}
+			&:nth-of-type(8) {
+				align-items: flex-end;
+			}
+			&:nth-of-type(9) {
+				align-items: flex-start;
+			}
+		}
+	}
+	&_10-players {
+		grid-template-areas:
+			". p5 . p6 . p7 ."
+			"p1 . . . . . p8"
+			". . . . . . ."
+			"p10 . . . . . p9"
+			". p2 . p3 . p4.";
+		.player {
+			&:nth-of-type(1) {
+				align-items: flex-end;
+			}
+			&:nth-of-type(2),
+			&:nth-of-type(3),
+			&:nth-of-type(4) {
+				top: -12.5%;
+
+				align-items: flex-start;
+				flex-direction: column;
+				justify-content: flex-start;
+				.player__info {
+					margin-top: 10px;
+				}
+			}
+			&:nth-of-type(5),
+			&:nth-of-type(6),
+			&:nth-of-type(7) {
+				bottom: -12.5%;
+
+				align-items: flex-start;
+				flex-direction: column;
+				justify-content: flex-end;
+				.player {
+					&__info {
+						order: 1;
+
+						margin-bottom: 10px;
+					}
+					&__avatar {
+						order: 2;
+					}
+				}
+			}
+			&:nth-of-type(2),
+			&:nth-of-type(5) {
+				align-items: flex-end;
+			}
+			&:nth-of-type(3),
+			&:nth-of-type(6) {
+				align-items: center;
+			}
+			&:nth-of-type(8),
+			&:nth-of-type(9) {
+				left: -12.5%;
+				.player__info {
+					margin-left: 10px;
+				}
+			}
+			&:nth-of-type(8) {
+				align-items: flex-end;
+			}
+			&:nth-of-type(9) {
+				align-items: flex-start;
+			}
+			&:nth-of-type(10) {
+				right: -12.5%;
+
+				align-items: flex-start;
+				justify-content: flex-end;
+				.player {
+					&__avatar {
+						order: 2;
+					}
+					&__info {
+						order: 1;
+
+						margin-right: 10px;
+					}
+				}
+			}
+		}
+	}
+}
