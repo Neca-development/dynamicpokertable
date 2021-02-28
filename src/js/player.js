@@ -15,7 +15,7 @@ export const player = {
         avatar.classList.add('player__avatar')
         player.append(avatar)
 
-        // TODO Remove after test
+        // Remove after test
         const deleteBtn = document.createElement('button')
         deleteBtn.classList.add('player__delete')
         deleteBtn.textContent = 'delete'
@@ -27,7 +27,7 @@ export const player = {
         textField.textContent = 'Some text.....'
         player.append(textField)
 
-        if (playersGrid.countPlayers() === playersGrid.playersLimit) return alert('Лимит превывшен')
+        if (playersGrid.countPlayers() === playersGrid.playersLimit) return alert('Limit is out')
         grid.append(player)
         playersGrid.refreshGrid()
     },
