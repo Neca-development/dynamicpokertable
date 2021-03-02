@@ -1,8 +1,11 @@
 import { player } from './js/player';
 import { table } from './js/table';
+import { helpers } from './js/helpers';
 
 
 table.drawTable([])
+
+window.addEventListener('resize', () => { helpers.aspectRatio() })
 
 // remove after test
 // add player

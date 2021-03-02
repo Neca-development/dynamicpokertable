@@ -1,3 +1,4 @@
+import { helpers } from './helpers';
 export const playersGrid = {
     playersLimit: 10,
     countPlayers() {
@@ -8,5 +9,6 @@ export const playersGrid = {
 
         grid.classList.remove(grid.classList.item(1))
         grid.classList.add(`players-grid_${this.countPlayers()}-players`)
+        helpers.aspectRatio()
     }
 }

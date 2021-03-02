@@ -86,6 +86,18 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/js/helpers.js":
+/*!***************************!*\
+  !*** ./src/js/helpers.js ***!
+  \***************************/
+/*! exports provided: helpers */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"helpers\", function() { return helpers; });\n/* harmony import */ var _player__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./player */ \"./src/js/player.js\");\n\nconst helpers = {\n  aspectRatio() {\n    const players = document.querySelectorAll('.player');\n    players.forEach(element => {\n      const maw = element.offsetWidth / 2,\n            mah = element.offsetHeight / 2,\n            ava = element.querySelector('.player__avatar');\n\n      if (maw > mah) {\n        ava.style.minWidth = mah + 'px';\n        ava.style.minHeight = mah + 'px';\n      } else {\n        ava.style.minWidth = maw + 'px';\n        ava.style.minHeight = maw + 'px';\n      }\n    });\n  }\n\n};\n\n//# sourceURL=webpack:///./src/js/helpers.js?");
+
+/***/ }),
+
 /***/ "./src/js/player.js":
 /*!**************************!*\
   !*** ./src/js/player.js ***!
@@ -106,7 +118,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"playersGrid\", function() { return playersGrid; });\nconst playersGrid = {\n  playersLimit: 10,\n\n  countPlayers() {\n    return document.querySelectorAll('.players-grid .player').length;\n  },\n\n  refreshGrid(playersCount) {\n    const grid = document.querySelector('.players-grid');\n    grid.classList.remove(grid.classList.item(1));\n    grid.classList.add(`players-grid_${this.countPlayers()}-players`);\n  }\n\n};\n\n//# sourceURL=webpack:///./src/js/playersGrid.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"playersGrid\", function() { return playersGrid; });\n/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers */ \"./src/js/helpers.js\");\n\nconst playersGrid = {\n  playersLimit: 10,\n\n  countPlayers() {\n    return document.querySelectorAll('.players-grid .player').length;\n  },\n\n  refreshGrid(playersCount) {\n    const grid = document.querySelector('.players-grid');\n    grid.classList.remove(grid.classList.item(1));\n    grid.classList.add(`players-grid_${this.countPlayers()}-players`);\n    _helpers__WEBPACK_IMPORTED_MODULE_0__[\"helpers\"].aspectRatio();\n  }\n\n};\n\n//# sourceURL=webpack:///./src/js/playersGrid.js?");
 
 /***/ }),
 
@@ -130,7 +142,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_player__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js/player */ \"./src/js/player.js\");\n/* harmony import */ var _js_table__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/table */ \"./src/js/table.js\");\n\n\n_js_table__WEBPACK_IMPORTED_MODULE_1__[\"table\"].drawTable([]); // remove after test\n// add player\n\ndocument.querySelector('.test-add-player').addEventListener('click', () => {\n  _js_player__WEBPACK_IMPORTED_MODULE_0__[\"player\"].addPlayer();\n}); // remove player\n\ndocument.querySelector('#dynamicpockertable').addEventListener('click', e => {\n  if (e.target.classList.contains('player__delete')) {\n    const id = e.target.closest('.player').getAttribute('id');\n    _js_player__WEBPACK_IMPORTED_MODULE_0__[\"player\"].removePlayer(id);\n    console.log(id);\n  }\n});\n\n//# sourceURL=webpack:///./src/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_player__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js/player */ \"./src/js/player.js\");\n/* harmony import */ var _js_table__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/table */ \"./src/js/table.js\");\n/* harmony import */ var _js_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/helpers */ \"./src/js/helpers.js\");\n\n\n\n_js_table__WEBPACK_IMPORTED_MODULE_1__[\"table\"].drawTable([]);\nwindow.addEventListener('resize', () => {\n  _js_helpers__WEBPACK_IMPORTED_MODULE_2__[\"helpers\"].aspectRatio();\n}); // remove after test\n// add player\n\ndocument.querySelector('.test-add-player').addEventListener('click', () => {\n  _js_player__WEBPACK_IMPORTED_MODULE_0__[\"player\"].addPlayer();\n}); // remove player\n\ndocument.querySelector('#dynamicpockertable').addEventListener('click', e => {\n  if (e.target.classList.contains('player__delete')) {\n    const id = e.target.closest('.player').getAttribute('id');\n    _js_player__WEBPACK_IMPORTED_MODULE_0__[\"player\"].removePlayer(id);\n    console.log(id);\n  }\n});\n\n//# sourceURL=webpack:///./src/main.js?");
 
 /***/ })
 
