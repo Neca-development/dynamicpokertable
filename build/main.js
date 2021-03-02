@@ -81,110 +81,57 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/main.js");
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ "./src/js/player.js":
+/*!**************************!*\
+  !*** ./src/js/player.js ***!
+  \**************************/
+/*! exports provided: player */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"player\", function() { return player; });\n/* harmony import */ var _playersGrid__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./playersGrid */ \"./src/js/playersGrid.js\");\n\nconst player = {\n  addPlayer(name, country, coins) {\n    const grid = document.querySelector('.players-grid'),\n          player = document.createElement('span'),\n          id = Date.now(); // create player\n\n    player.setAttribute('id', id);\n    player.classList.add('player'); // create avatar\n\n    const avatar = document.createElement('div');\n    avatar.classList.add('player__avatar');\n    player.append(avatar); // Remove after test\n\n    const deleteBtn = document.createElement('button');\n    deleteBtn.classList.add('player__delete');\n    deleteBtn.textContent = 'delete';\n    player.append(deleteBtn);\n    const textField = document.createElement('div');\n    textField.classList.add('player__info');\n    textField.textContent = 'Some text.....';\n    player.append(textField);\n    if (_playersGrid__WEBPACK_IMPORTED_MODULE_0__[\"playersGrid\"].countPlayers() === _playersGrid__WEBPACK_IMPORTED_MODULE_0__[\"playersGrid\"].playersLimit) return alert('Limit is out');\n    grid.prepend(player);\n    _playersGrid__WEBPACK_IMPORTED_MODULE_0__[\"playersGrid\"].refreshGrid();\n  },\n\n  removePlayer(id) {\n    document.getElementById(id).remove();\n    _playersGrid__WEBPACK_IMPORTED_MODULE_0__[\"playersGrid\"].refreshGrid();\n  }\n\n};\n\n//# sourceURL=webpack:///./src/js/player.js?");
 
-// CONCATENATED MODULE: ./src/js/playersGrid.js
-const playersGrid = {
-  playersLimit: 10,
+/***/ }),
 
-  countPlayers() {
-    return document.querySelectorAll('.players-grid .player').length;
-  },
+/***/ "./src/js/playersGrid.js":
+/*!*******************************!*\
+  !*** ./src/js/playersGrid.js ***!
+  \*******************************/
+/*! exports provided: playersGrid */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-  refreshGrid(playersCount) {
-    const grid = document.querySelector('.players-grid');
-    grid.classList.remove(grid.classList.item(1));
-    grid.classList.add(`players-grid_${this.countPlayers()}-players`);
-  }
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"playersGrid\", function() { return playersGrid; });\nconst playersGrid = {\n  playersLimit: 10,\n\n  countPlayers() {\n    return document.querySelectorAll('.players-grid .player').length;\n  },\n\n  refreshGrid(playersCount) {\n    const grid = document.querySelector('.players-grid');\n    grid.classList.remove(grid.classList.item(1));\n    grid.classList.add(`players-grid_${this.countPlayers()}-players`);\n  }\n\n};\n\n//# sourceURL=webpack:///./src/js/playersGrid.js?");
 
-};
-// CONCATENATED MODULE: ./src/js/player.js
+/***/ }),
 
-const player_player = {
-  addPlayer(name, country, coins) {
-    const grid = document.querySelector('.players-grid'),
-          player = document.createElement('div'),
-          id = Date.now(); // create player
+/***/ "./src/js/table.js":
+/*!*************************!*\
+  !*** ./src/js/table.js ***!
+  \*************************/
+/*! exports provided: table */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-    player.setAttribute('id', id);
-    player.classList.add('player'); // create avatar
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"table\", function() { return table; });\nconst table = {\n  drawTable(players) {\n    const tablewrapper = document.getElementById('dynamicpockertable');\n    tablewrapper.innerHTML = `\n            <div class=\"table-wrapper\">\n            <div class=\"table\" id=\"table\"></div>\n            </div>\n            <div class=\"message-box\" id=\"message-box\"></div>\n            <div class=\"players-grid\"></div >\n        `;\n    this.applyColorsToTable('#076B94', '#666');\n    this.sendMessageToTable(`Hello from container!!!`);\n  },\n\n  applyColorsToTable(tableColor, borderColor) {\n    const table = document.getElementById('table');\n    table.style.backgroundColor = tableColor;\n    table.style.borderColor = borderColor;\n  },\n\n  sendMessageToTable(message) {\n    const tablecontainer = document.getElementById('message-box');\n    tablecontainer.innerHTML = message;\n  }\n\n};\n\n//# sourceURL=webpack:///./src/js/table.js?");
 
-    const avatar = document.createElement('div');
-    avatar.classList.add('player__avatar');
-    player.append(avatar); // Remove after test
+/***/ }),
 
-    const deleteBtn = document.createElement('button');
-    deleteBtn.classList.add('player__delete');
-    deleteBtn.textContent = 'delete';
-    player.append(deleteBtn);
-    const textField = document.createElement('div');
-    textField.classList.add('player__info');
-    textField.textContent = 'Some text.....';
-    player.append(textField);
-    if (playersGrid.countPlayers() === playersGrid.playersLimit) return alert('Limit is out');
-    grid.append(player);
-    playersGrid.refreshGrid();
-  },
+/***/ "./src/main.js":
+/*!*********************!*\
+  !*** ./src/main.js ***!
+  \*********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-  removePlayer(id) {
-    document.getElementById(id).remove();
-    playersGrid.refreshGrid();
-  }
-
-};
-// CONCATENATED MODULE: ./src/js/table.js
-const table = {
-  drawTable(players) {
-    const tablewrapper = document.getElementById('dynamicpockertable');
-    tablewrapper.innerHTML = `
-            <div class="table-wrapper">
-            <div class="table" id="table"></div>
-            </div>
-            <div class="message-box" id="message-box"></div>
-            <div class="players-grid"></div >
-        `;
-    this.applyColorsToTable('#076B94', '#666');
-    this.sendMessageToTable(`Hello from container!!!`);
-  },
-
-  applyColorsToTable(tableColor, borderColor) {
-    const table = document.getElementById('table');
-    table.style.backgroundColor = tableColor;
-    table.style.borderColor = borderColor;
-  },
-
-  sendMessageToTable(message) {
-    const tablecontainer = document.getElementById('message-box');
-    tablecontainer.innerHTML = message;
-  }
-
-};
-// CONCATENATED MODULE: ./src/main.js
-
-
-table.drawTable([]); // remove after test
-// add player
-
-document.querySelector('.test-add-player').addEventListener('click', () => {
-  player_player.addPlayer();
-}); // remove player
-
-document.querySelector('#dynamicpockertable').addEventListener('click', e => {
-  if (e.target.classList.contains('player__delete')) {
-    const id = e.target.closest('.player').getAttribute('id');
-    player_player.removePlayer(id);
-    console.log(id);
-  }
-});
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_player__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js/player */ \"./src/js/player.js\");\n/* harmony import */ var _js_table__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/table */ \"./src/js/table.js\");\n\n\n_js_table__WEBPACK_IMPORTED_MODULE_1__[\"table\"].drawTable([]); // remove after test\n// add player\n\ndocument.querySelector('.test-add-player').addEventListener('click', () => {\n  _js_player__WEBPACK_IMPORTED_MODULE_0__[\"player\"].addPlayer();\n}); // remove player\n\ndocument.querySelector('#dynamicpockertable').addEventListener('click', e => {\n  if (e.target.classList.contains('player__delete')) {\n    const id = e.target.closest('.player').getAttribute('id');\n    _js_player__WEBPACK_IMPORTED_MODULE_0__[\"player\"].removePlayer(id);\n    console.log(id);\n  }\n});\n\n//# sourceURL=webpack:///./src/main.js?");
 
 /***/ })
-/******/ ]);
+
+/******/ });

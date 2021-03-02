@@ -3,7 +3,7 @@ import { playersGrid } from './playersGrid';
 export const player = {
     addPlayer(name, country, coins) {
         const grid = document.querySelector('.players-grid'),
-            player = document.createElement('div'),
+            player = document.createElement('span'),
             id = Date.now();
 
         // create player
@@ -28,7 +28,7 @@ export const player = {
         player.append(textField)
 
         if (playersGrid.countPlayers() === playersGrid.playersLimit) return alert('Limit is out')
-        grid.append(player)
+        grid.prepend(player)
         playersGrid.refreshGrid()
     },
     removePlayer(id) {
