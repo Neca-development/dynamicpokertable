@@ -92,7 +92,29 @@
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
+// CONCATENATED MODULE: ./src/js/helpers.js
+
+const helpers = {
+  aspectRatio() {
+    const players = document.querySelectorAll('.player');
+    players.forEach(element => {
+      const maw = element.offsetWidth / 2,
+            mah = element.offsetHeight / 2,
+            ava = element.querySelector('.player__avatar');
+
+      if (maw > mah) {
+        ava.style.minWidth = mah + 'px';
+        ava.style.minHeight = mah + 'px';
+      } else {
+        ava.style.minWidth = maw + 'px';
+        ava.style.minHeight = maw + 'px';
+      }
+    });
+  }
+
+};
 // CONCATENATED MODULE: ./src/js/playersGrid.js
+
 const playersGrid = {
   playersLimit: 10,
 
@@ -104,6 +126,7 @@ const playersGrid = {
     const grid = document.querySelector('.players-grid');
     grid.classList.remove(grid.classList.item(1));
     grid.classList.add(`players-grid_${this.countPlayers()}-players`);
+    helpers.aspectRatio();
   }
 
 };
@@ -112,7 +135,7 @@ const playersGrid = {
 const player_player = {
   addPlayer(name, country, coins) {
     const grid = document.querySelector('.players-grid'),
-          player = document.createElement('div'),
+          player = document.createElement('span'),
           id = Date.now(); // create player
 
     player.setAttribute('id', id);
@@ -131,7 +154,7 @@ const player_player = {
     textField.textContent = 'Some text.....';
     player.append(textField);
     if (playersGrid.countPlayers() === playersGrid.playersLimit) return alert('Limit is out');
-    grid.append(player);
+    grid.prepend(player);
     playersGrid.refreshGrid();
   },
 
@@ -171,7 +194,11 @@ const table = {
 // CONCATENATED MODULE: ./src/main.js
 
 
-table.drawTable([]); // remove after test
+
+table.drawTable([]);
+window.addEventListener('resize', () => {
+  helpers.aspectRatio();
+}); // remove after test
 // add player
 
 document.querySelector('.test-add-player').addEventListener('click', () => {
