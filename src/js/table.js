@@ -3,13 +3,14 @@ export const table = {
         const tablewrapper = document.getElementById('dynamicpockertable');
         tablewrapper.innerHTML = `
             <div class="table-wrapper">
-            <div class="table" id="table"></div>
+                <div class="table" id="table">
+                    <div class="message-box" id="message-box"></div>
+                </div>
             </div>
-            <div class="message-box" id="message-box"></div>
             <div class="players-grid"></div >
         `;
         this.applyColorsToTable('#076B94', '#666');
-        this.sendMessageToTable(`Hello from container!!!`);
+        this.sendMessageToTable(`Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br/> Quo vero sint dolorem ab dignissimos, officiis impedit obcaecati id non explicabo nemo! Odio voluptatem magni in rerum nam aliquam recusandae inventore?`);
     },
 
     applyColorsToTable(tableColor, borderColor) {
