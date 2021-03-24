@@ -1,110 +1,55 @@
 .player {
 	position: relative;
 
-	display: flex;
+	display: inline-flex;
 	align-items: center;
-	justify-content: flex-start;
+	flex-direction: column;
 
-	width: 100%;
-	height: 100%;
+	padding: 5px;
 
 	transition: all ease 0.2s;
+
+	border: 1px solid grey;
+	border-radius: 10px;
+	background-color: rgb(231, 253, 253);
 	&:nth-of-type(1) {
 		right: -12.5%;
 
-		align-items: center;
-		justify-content: flex-end;
+		margin-left: auto;
 		grid-area: p1;
-		.player {
-			&__avatar {
-				order: 2;
-
-				transform: rotate(-90deg);
-
-				background-color: rgb(82, 221, 203);
-			}
-			&__info {
-				order: 1;
-
-				margin-right: 10px;
-			}
-		}
 	}
 	&:nth-of-type(2) {
 		grid-area: p2;
-		.player__avatar {
-			background-color: rgb(220, 20, 60);
-		}
 	}
 	&:nth-of-type(3) {
 		grid-area: p3;
-		.player__avatar {
-			background-color: rgb(240, 128, 128);
-		}
 	}
 	&:nth-of-type(4) {
 		grid-area: p4;
-		.player__avatar {
-			background-color: #444;
-		}
 	}
 	&:nth-of-type(5) {
 		grid-area: p5;
-		.player__avatar {
-			background-color: rgb(36, 143, 36);
-		}
 	}
 	&:nth-of-type(6) {
 		grid-area: p6;
-		.player__avatar {
-			background-color: rgb(218, 165, 32);
-		}
 	}
 	&:nth-of-type(7) {
 		grid-area: p7;
-		.player__avatar {
-			background-color: rgb(199, 36, 177);
-		}
 	}
 	&:nth-of-type(8) {
 		grid-area: p8;
-		.player__avatar {
-			background-color: rgb(106, 216, 121);
-		}
 	}
 	&:nth-of-type(9) {
 		grid-area: p9;
-		.player__avatar {
-			background-color: rgb(243, 123, 24);
-		}
 	}
 	&:nth-of-type(10) {
 		grid-area: p10;
-		.player__avatar {
-			background-color: rgb(67, 28, 206);
-		}
 	}
 	&__avatar {
 		position: relative;
-		z-index: 1;
 
-		border-radius: 100%;
-		box-shadow: 2px 7px 0px rgba(0, 0, 0, 0.4);
-		&:after {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-
-			width: 60%;
-			height: 60%;
-
-			content: "";
-			transform: translatex(-50%) translatey(-50%);
-
-			border-radius: 100%;
-			background-color: rgba(0, 0, 0, 0.1);
-			box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.2);
-		}
+		width: auto;
+		height: 45px;
 	}
 	// remove after test
 	&__delete {
@@ -125,13 +70,10 @@
 	&__info {
 		z-index: 2;
 
+		display: inline-block;
 		flex: auto;
 
 		padding: 10px 20px;
-
-		border: 1px solid grey;
-		border-radius: 10px;
-		background-color: #fff;
 	}
 }
 

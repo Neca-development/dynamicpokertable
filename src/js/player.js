@@ -3,15 +3,21 @@ import { playersGrid } from './playersGrid';
 export const player = {
     addPlayer(name, country, coins) {
         const grid = document.querySelector('.players-grid'),
-            player = document.createElement('span'),
+            player = document.createElement('div'),
             id = Date.now();
 
         // create player
         player.setAttribute('id', id)
         player.classList.add('player')
 
+        const nameField = document.createElement('div')
+        nameField.classList.add('player__name')
+        nameField.textContent = name || 'Guest'
+        player.append(nameField)
+
         // create avatar
-        const avatar = document.createElement('div')
+        const avatar = document.createElement('img')
+        avatar.src = 'avatar.png'
         avatar.classList.add('player__avatar')
         player.append(avatar)
 
